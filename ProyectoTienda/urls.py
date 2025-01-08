@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from mymusicstore import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("TiendaVinilos/", views.tienda_vinilos, name="tienda_vinilos"),
 ]
