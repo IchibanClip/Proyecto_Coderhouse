@@ -1,0 +1,99 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}
+    Registrarse
+{% endblock title %}
+
+{% block content_title %}
+    Registrar Usuario
+{% endblock content_title %}
+
+{% block content %}
+    {% load widget_tweaks %}
+    <form action="" method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="{{ form.nombre.id_for_label }}">Nombre</label>
+            {{ form.nombre|add_class:"form-control mb-2" }}
+            {% if form.nombre.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.nombre.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.apellido.id_for_label }}">Apellido</label>
+            {{ form.apellido|add_class:"form-control mb-2" }}
+            {% if form.apellido.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.apellido.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email|add_class:"form-control mb-2" }}
+            {% if form.email.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.telefono.id_for_label }}">Teléfono</label>
+            {{ form.telefono|add_class:"form-control mb-2" }}
+            {% if form.telefono.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.telefono.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.direccion.id_for_label }}">Dirección</label>
+            {{ form.direccion|add_class:"form-control mb-2" }}
+            {% if form.direccion.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.direccion.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.contrasena.id_for_label }}">Contraseña</label>
+            {{ form.contrasena|add_class:"form-control mb-2" }}
+            {% if form.contrasena.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.contrasena.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">Registrar</button>
+        <a href="{% url 'Main:inicio' %}" class="btn btn-secondary mb-2">Cancelar</a>
+    </form>
+{% endblock content %}
+
+{% block footer %}
+    <footer class="bg-dark text-white p-1 mt-auto">
+        <div class="container">
+            <p class="text-center">© 2025 Tienda de Vinilos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+{% endblock footer %}

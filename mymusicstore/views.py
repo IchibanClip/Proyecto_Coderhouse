@@ -1,14 +1,31 @@
-from django.shortcuts import render
-from .models import Disco, DiscoDestacado
+from django.shortcuts import redirect, render
+from .models import Disco
+from .forms import UsuarioForm
 
 # Create your views here.
-def tienda_vinilos(request):
-    disco_list = Disco.objects.all()
-    discoDestacado_list = DiscoDestacado.objects.all()
+def catalogo(request):
+    busqueda = request.GET.get('busqueda', '')
+    if busqueda:
+        disco_list = Disco.objects.filter(nombre__icontains=busqueda)
+    else:
+        disco_list = Disco.objects.all()
     
     context = {
-        "message": "Encuentra los mejores discos de vinilo para tu coleccion",
+        "message": "Encuentra los mejores discos de vinilo para tu colección",
         "discos": disco_list,
-        "discosdestacados":discoDestacado_list,
+        "busqueda": busqueda,
     }
-    return render(request, "mymusicstore/index.html", context)
+    return render(request, 'mymusicstore/catalogo.html', context)
+
+
+def registrarusuario(request):
+    if request.method == 'POST':
+        form = UsuarioForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('Main:inicio')
+    else:
+        form = UsuarioForm()
+
+    return render(request, 'mymusicstore/registrarusuario.html', {'form': form})

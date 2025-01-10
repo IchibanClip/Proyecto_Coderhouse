@@ -1,0 +1,57 @@
+{% extends 'Main/base.html' %}
+
+{% block content_secondtitle %}
+    Vinilos Destacados
+{% endblock content_secondtitle %}
+
+{% block main %}
+    <section>
+        <div class="row">
+            {% for discodestacado in discosdestacados %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ discodestacado.nombre }}</h5>
+                            <p class="card-text">S/{{ discodestacado.precio }}</p>
+                            <a href="#" class="btn btn-primary">Ver detalles</a>
+                            <button class="btn btn-outline-primary" type="button">Añadir a Deseados</button>
+                        </div>
+                    </div>        
+                </div>
+            {% empty %}
+                <p>No hay discos destacados en este momento.</p>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock main %}
+
+{% block content_title %}
+    Vinilos más recientes
+{% endblock content_title %}
+
+{% block content %}
+    <div class="row">
+        {% for disco in discos %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ disco.nombre }}</h5>
+                        <p class="card-text">S/{{ disco.precio }}</p>
+                        <a href="#" class="btn btn-primary">Ver detalles</a>
+                        <button class="btn btn-outline-primary" type="button">Añadir a Deseados</button>
+                    </div>
+                </div>        
+            </div>
+        {% empty %}
+            <p>No hay discos disponibles en este momento.</p>
+        {% endfor %}
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    <footer class="bg-dark text-white p-1 mt-auto">
+        <div class="container">
+            <p class="text-center">© 2025 Tienda de Vinilos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+{% endblock footer %}
