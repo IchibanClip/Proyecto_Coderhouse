@@ -8,6 +8,10 @@
     Vinilos
 {% endblock content_title %}
 
+{% block content_title_actions %}
+    <a href="{% url 'mymusicstore:registrardisco' %}" class="btn btn-primary">Agregar Disco</a>
+{% endblock content_title_actions %}
+
 {% block content %}
     <div class="row">
         {% for disco in discos %}

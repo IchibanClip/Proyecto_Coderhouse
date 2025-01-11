@@ -34,19 +34,20 @@
                         <input class="form-control me-2" type="text" name="busqueda" placeholder="Buscar vinilo...">
                         <button class="btn btn-outline-light" type="submit">Buscar</button>
                     </form>
-                    
                 </div>
             </div>
         </div>
     </nav>
     <main class="container mt-5">
         <section>
-            <h2 class="display-6">{% block content_secondtitle %} {% endblock content_secondtitle %}</h2>
             {% block main %}        
             {% endblock main %}
         </section>
         <section>
-            <h2 class="display-6 mt-4">{% block content_title %} {% endblock content_title %}</h2>
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <h2 class="display-6">{% block content_title %} {% endblock content_title %}</h2>
+                {% block content_title_actions %}{% endblock content_title_actions %}
+            </div>
             {% block content %}        
             {% endblock content %}
         </section>

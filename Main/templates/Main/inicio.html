@@ -1,12 +1,12 @@
 {% extends 'Main/base.html' %}
 
-{% block content_secondtitle %}
-    Vinilos Destacados
-{% endblock content_secondtitle %}
-
 {% block main %}
     <section>
-        <div class="row">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="display-6">Vinilos Destacados</h2>
+            <a href="{% url 'mymusicstore:registrardiscodestacado' %}" class="btn btn-success">Agregar Disco Destacado</a>
+        </div>
+        <div class="row mt-3">
             {% for discodestacado in discosdestacados %}
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card h-100">
@@ -28,6 +28,10 @@
 {% block content_title %}
     Vinilos más recientes
 {% endblock content_title %}
+
+{% block content_title_actions %}
+    <a href="{% url 'mymusicstore:registrardisco' %}" class="btn btn-primary">Agregar Disco</a>
+{% endblock content_title_actions %}
 
 {% block content %}
     <div class="row">

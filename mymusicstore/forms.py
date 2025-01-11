@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import EmailValidator
 import re
-from .models import RegistrarUsuario
+from .models import RegistrarUsuario, Disco, DiscoDestacado
 
 class UsuarioForm(forms.ModelForm):
     class Meta:
@@ -39,3 +39,19 @@ class UsuarioForm(forms.ModelForm):
             if not cleaned_data.get(field):
                 self.add_error(field, 'Este campo no puede estar vacío.')
         return cleaned_data
+
+class DiscoForm(forms.ModelForm):
+    class Meta:
+        model = Disco
+        fields = ['nombre', 'precio', 'descripcion']
+
+    def clean_precio(self):
+        precio = self.cleaned_data.get('precio')
+        if precio <= 0:
+            raise forms.ValidationError("El precio debe ser mayor que cero.")
+        return precio
+    
+class DiscoDestacadoForm(forms.ModelForm):
+    class Meta:
+        model = DiscoDestacado
+        fields = ["nombre", "precio", "estado", "autor"]
