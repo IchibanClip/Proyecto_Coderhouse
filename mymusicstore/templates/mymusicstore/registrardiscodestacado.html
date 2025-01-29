@@ -5,28 +5,28 @@
 {% endblock title %}
 
 {% block content_title %}
-    Elegir Disco Destacado
+   <b>Elegir Disco Destacado</b>
 {% endblock content_title %}
 
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="disco_id">Seleccionar Disco</label>
+        <div class="form-group mb-4">
+            <label for="disco_id"> <b>Seleccionar Disco</b></label>
             <select id="disco_id" name="disco_id" class="form-control">
                 {% for disco in discos %}
                     <option value="{{ disco.id }}">{{ disco.nombre }} - S/{{ disco.precio }}</option>
                 {% endfor %}
             </select>
         </div>
-        <div class="form-group">
-            <label for="estado">Estado</label>
+        <div class="form-group mb-4">
+            <label for="estado"><b>Estado</b></label>
             <select id="estado" name="estado" class="form-control">
                 <option value="B">Borrador</option>
                 <option value="P">Publicado</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Registrar Disco Destacado</button>
+        <button type="submit" class="btn btn-primary mb-3">Registrar Disco Destacado</button>
     </form>
 {% endblock content %}
 

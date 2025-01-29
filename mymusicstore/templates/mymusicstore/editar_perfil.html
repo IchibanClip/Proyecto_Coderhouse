@@ -5,15 +5,53 @@
 {% endblock title %}
 
 {% block content_title %}
-    Editar Perfil de {{ form.instance.nombre }} {{ form.instance.apellido }}
+    <b>Editar Perfil de {{ form.instance.nombre }} {{ form.instance.apellido }}</b>
 {% endblock content_title %}
 
 {% block content %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group mb-4">
+            <label for="id_nombre"><b>Nombre:</b></label>
+            {{ form.nombre }}
+        </div>
+        <div class="form-group mb-4">
+            <label for="id_apellido"><b>Apellido:</b></label>
+            {{ form.apellido }}
+        </div>
+        <div class="form-group mb-4">
+            <label for="id_email"><b>Email:</b></label>
+            {{ form.email }}
+        </div>
+        <div class="form-group mb-4">
+            <label for="id_telefono"><b>Teléfono:</b></label>
+            {{ form.telefono }}
+        </div>
+        <div class="form-group mb-4">
+            <label for="id_direccion"><b>Dirección:</b></label>
+            {{ form.direccion }}
+        </div>
+        <div class="form-group mb-4">
+            <label for="id_biografia"><b>Biografía:</b></label>
+            {{ form.biografia }}
+        </div>
+        <div class="form-group mb-4">
+            <label for="id_fecha_de_cumpleanios"><b>Fecha de Cumpleaños:</b></label>
+            {{ form.fecha_de_cumpleanios }}
+        </div>
+        <div class="form-group mb-4">
+            <label for="id_avatar"><b>Avatar:</b></label>
+            {{ form.avatar }}
+            </div>
         <h3>Cambiar Contraseña</h3>
-        {{ password_form.as_p }}
+        <div class="form-group mb-4">
+            <label for="id_nueva_contrasena"><b>Nueva Contraseña:</b></label>
+            {{ password_form.nueva_contrasena }}
+        </div>
+        <div class="form-group mb-4">
+            <label for="id_confirmar_contrasena"><b>Confirmar Contraseña:</b></label>
+            {{ password_form.confirmar_contrasena }}
+        </div>
         <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         <a href="{% url 'mymusicstore:perfil_usuario' form.instance.id %}" class="btn btn-secondary">Cancelar</a>
     </form>

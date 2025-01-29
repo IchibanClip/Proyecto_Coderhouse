@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block content_title %}
-    Vinilos
+    <b> Vinilos </b>
 {% endblock content_title %}
 
 {% block content_title_actions %}
@@ -15,7 +15,7 @@
 {% block content %}
     <div class="row">
         {% for disco in discos %}
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                 <div class="card h-100">
                     <div class="card h-100" style="background-color: #f8f9fa;">
                         {% if disco.imagen %}

@@ -1,7 +1,7 @@
 {% extends 'Main/base.html' %}
 
 {% block content_secondtitle %}
-    Vinilos Destacados
+    <b>Vinilos Destacados</b>
     <a href="{% url 'mymusicstore:registrardiscodestacado' %}" class="btn btn-secondary">Agregar Disco Destacado</a>
 {% endblock content_secondtitle %}
 
@@ -9,7 +9,7 @@
     <section>
         <div class="row">
             {% for discodestacado in discosdestacados %}
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                     <div class="card h-100" style="background-color: #f8f9fa;">
                         {% if discodestacado.imagen %}
                             <img src="{{ discodestacado.imagen.url }}" class="card-img-top" alt="{{ discodestacado.nombre }}">
@@ -29,14 +29,14 @@
 {% endblock main %}
 
 {% block content_title %}
-    Vinilos más recientes
+    <b>Vinilos más recientes</b>
     <a href="{% url 'mymusicstore:registrardisco' %}" class="btn btn-secondary">Agregar Disco</a>
 {% endblock content_title %}
 
 {% block content %}
     <div class="row">
         {% for disco in discos %}
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                 <div class="card h-100" style="background-color: #f8f9fa;">
                     {% if disco.imagen %}
                         <img src="{{ disco.imagen.url }}" class="card-img-top" alt="{{ disco.nombre }}">

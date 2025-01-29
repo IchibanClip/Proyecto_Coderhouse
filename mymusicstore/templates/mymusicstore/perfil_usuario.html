@@ -5,15 +5,15 @@
 {% endblock title %}
 
 {% block content_title %}
-    Perfil de {{ usuario.nombre }} {{ usuario.apellido }}
+    <b> Perfil de {{ usuario.nombre }} {{ usuario.apellido }}</b>
 {% endblock content_title %}
 
 {% block content %}
-    <div class="container my-4">
-        <div class="row">
+    <div class="col-lg-12">
+        <div class="row align-items-center">
             <div class="col-md-4">
                 {% if usuario.avatar %}
-                    <div class="mt-4">
+                    <div class="mt-4 mb-4">
                         <img src="{{ usuario.avatar.url }}" class="img-fluid" alt="Avatar de {{ usuario.nombre }}">
                     </div>
                 {% endif %}

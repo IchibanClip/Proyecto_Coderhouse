@@ -9,7 +9,7 @@
 <body>
     <header class="bg-dark text-white p-3">
         <div class="container">
-            <h1 class="display-4">Buscador de Vinilos</h1>
+            <h1 class="display-4"> <b> Buscador de Vinilos</b> </h1>
             <p class="lead">{{message}}</p>
         </div>
     </header>
@@ -45,16 +45,14 @@
             </div>
         </div>
     </nav>
-    <main class="container mt-5">
+    <main class="container mt-3 mb-3">
         <section>
-            <h2 class="display-6">{% block content_secondtitle %}{% endblock content_secondtitle %}</h2>
+            <h2 class="display-6 mb-3 d-flex justify-content-between align-items-center">{% block content_secondtitle %}{% endblock content_secondtitle %}</h2>
             {% block main %}        
             {% endblock main %}
         </section>
         <section>
-            <div class="d-flex justify-content-between align-items-center mt-4">
-                <h2 class="display-6">{% block content_title %} {% endblock content_title %}</h2>
-            </div>
+            <h2 class="display-6 mb-3 d-flex justify-content-between align-items-center">{% block content_title %} {% endblock content_title %}</h2>
             {% block content %}        
             {% endblock content %}
         </section>
