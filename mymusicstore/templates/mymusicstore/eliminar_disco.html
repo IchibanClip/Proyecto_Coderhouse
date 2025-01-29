@@ -1,0 +1,26 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}
+    Eliminar Disco
+{% endblock title %}
+
+{% block content_title %}
+    Eliminar Disco
+{% endblock content_title %}
+
+{% block content %}
+    <p>¿Estás seguro de que deseas eliminar el disco "{{ object.nombre }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{% url 'mymusicstore:catalogo' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock content %}
+
+{% block footer %}
+    <footer class="bg-dark text-white p-1 mt-auto">
+        <div class="container">
+            <p class="text-center">© 2025 Tienda de Vinilos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+{% endblock footer %}

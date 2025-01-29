@@ -4,82 +4,71 @@
 
 ## Descripción
 
-Este proyecto es una aplicación web desarrollada con Django, es una simulacion de un tienda de vinilos.
+Este proyecto es una aplicación web desarrollada con Django, es una simulación de una un buscador de vinilos donde puedes ver el precio aproximado y lo que contiene.
 
 El proyecto utiliza el patrón MVT (Modelo-Vista-Template) de Django y hace uso de la herencia de plantillas para mantener un diseño consistente en las diferentes páginas. Además, se ha creado un superusuario para facilitar la administración de la aplicación.
 
-## Funcionalidades actuales
+## Funcionalidades
 
-1. **Registro de usuario**: Los usuarios pueden registrarse en el sistema (proximamente iniciar sesion).
-2. **Agregar discos**: Se puede agregar discos a la base de datos, incluyendo la opción de marcar cuáles serán destacados. (solo admin)
-3. **Buscar discos**: Se puede realizar una búsqueda por discos a través del buscador de la página.
-4. **Navegación básica**: La página incluye enlaces para navegar entre diferentes secciones (aunque algunos botones aún no están funcionando completamente).
-5. **Superusuario**: Se ha configurado un superusuario para facilitar la administración del sistema.
+- **Inicio**: Página principal del buscador.
+- **Acerca de mí**: Página de contacto con información sobre el dueño.
+- **Catálogo**: Listado de discos disponibles.
+- **Detalle de Disco**: Vista detallada de cada disco.
+- **Registro de Usuario**: Formulario para registrar nuevos usuarios.
+- **Inicio de Sesión**: Formulario para iniciar sesión.
+- **Perfil de Usuario**: Vista y edición del perfil de usuario.
+- **Mensajería**: Funcionalidad para enviar y recibir mensajes entre usuarios.
+- **CRUD de Páginas**: Crear, editar y eliminar.
+
+## Instalación
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/Proyecto_Coderhouse.git
+   cd Proyecto_Coderhouse
+
+2. Crea y activa un entorno virtual:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # En Windows: .\.venv\Scripts\activate
+
+3. Instala las dependencias:
+   ```bash
+   pip install -r requirements.txt
+
+4. Realiza las migraciones:
+   ```bash
+   python manage.py migrate
+
+5. Crea un superusuario:
+   ```bash
+   python manage.py createsuperuser
+
+6. Ejecuta el servidor de desarrollo:
+   ```bash
+   python manage.py runserver
+
+7. Accede a la aplicación en tu navegador:
+
+## Rutas principales
+- **Página principal**: Muestra los discos y permite buscar discos.
+- **Formulario de registro**: Permite a los usuarios registrarse en el sistema.
+- **Formulario de agregar disco**: Permite agregar nuevos discos a la base de datos y    marcar discos como destacados.
+- **Búsqueda de discos**: Los usuarios pueden buscar discos por título u otros criterios.
+- **Perfil de usuario**: Permite a los usuarios ver y editar su perfil.
+- **Acerca de mi**: Muestra mis contactos
+
+## Notas
+   Los usuarios pueden acceder al panel de administración utilizando el superusuario:
 
    - **Usuario**: admin
    - **Contraseña**: 123
-
-## Instrucciones para ejecutar el proyecto
-
-1. Clonar el repositorio en tu máquina local:
-   git clone <URL_DEL_REPOSITORIO>
-
-
-Navegar al directorio del proyecto:
-Copiar código
-cd Proyecto_Coderhouse
-
-Crear un entorno virtual:
-Copiar código
-python -m venv venv
-
-
-Activar el entorno virtual:
-
-En Windows:
-Copiar código
-venv\Scripts\activate
-
-En Mac/Linux:
-Copiar código
-source venv/bin/activate
-
-Instalar las dependencias del proyecto:
-Copiar código
-pip install -r requirements.txt
-
-Realizar las migraciones de la base de datos:
-Copiar código
-python manage.py migrate
-
-Crear un superusuario para acceder al panel de administración:
-Copiar código
-python manage.py createsuperuser
-
-Ejecutar el servidor de desarrollo:
-Copiar código
-python manage.py runserver
-El proyecto estará disponible en: http://127.0.0.1:8000/
-
-## Rutas principales
-Página principal: Muestra los discos y permite buscar discos.
-Formulario de registro: Permite a los usuarios registrarse en el sistema.
-Formulario de agregar disco: Permite agregar nuevos discos a la base de datos y marcar discos como destacados.
-Búsqueda de discos: Los usuarios pueden buscar discos por título u otros criterios.
-
-## Funcionalidades por completar
-Algunos botones de la aplicación no están completamente implementados, pero se espera que en futuras actualizaciones, las funcionalidades de selección de discos destacados y otros botones adicionales estén habilitados.
-
-## Notas
-Los usuarios pueden acceder al panel de administración utilizando el superusuario:
-Usuario: admin
-Contraseña: 123
-URL del panel de administración: http://127.0.0.1:8000/admin/
+   - **URL del panel de administración**: http://127.0.0.1:8000/admin/
 
 ## Tecnologías utilizadas
-Django
-HTML, Bootstrap (para el diseño)
-Base de datos SQLite (por defecto)
+   Django
+   HTML, Bootstrap (para el diseño)
+   Base de datos SQLite (por defecto)
 
-## Agradecimientos
+# Agradecimientos
 Gracias a Coderhouse por el material de aprendizaje que hizo posible este proyecto.

@@ -12,14 +12,21 @@
     <form method="post">
         {% csrf_token %}
         <div class="form-group">
-            <label for="disco">Seleccionar Disco:</label>
-            <select id="disco" name="disco" class="form-control">
+            <label for="disco_id">Seleccionar Disco</label>
+            <select id="disco_id" name="disco_id" class="form-control">
                 {% for disco in discos %}
                     <option value="{{ disco.id }}">{{ disco.nombre }} - S/{{ disco.precio }}</option>
                 {% endfor %}
             </select>
         </div>
-        <button type="submit" class="btn btn-success mt-3">Agregar como Destacado</button>
+        <div class="form-group">
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado" class="form-control">
+                <option value="B">Borrador</option>
+                <option value="P">Publicado</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar Disco Destacado</button>
     </form>
 {% endblock content %}
 

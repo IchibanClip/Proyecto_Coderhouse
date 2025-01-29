@@ -1,0 +1,43 @@
+{% extends 'Main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Contacto
+{% endblock title %}
+
+{% block content_title %}
+    Contacto
+{% endblock content_title %}
+
+{% block content %}
+    <div class="container my-4">
+        <h2>Sobre mi:</h2>
+        <div class="row">
+            <div class="col-md-4">
+                {% if contacto.imagen %}
+                    <div class="mt-4">
+                        <img src="{{ contacto.imagen.url }}" class="img-fluid" alt="{{ contacto.nombre }}">
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <p><strong>Nombre:</strong> {{ contacto.nombre }}</p>
+                <p><strong>Profesión:</strong> {{ contacto.profesion }}</p>
+                <p><strong>Ubicación:</strong> {{ contacto.ubicacion }}</p>
+                <p><strong>LinkedIn:</strong> <a href="{{ contacto.linkedin }}" target="_blank">{{ contacto.linkedin }}</a></p>
+                <p><strong>Behance:</strong> <a href="{{ contacto.behance }}" target="_blank">{{ contacto.behance }}</a></p>
+                <p><strong>Instagram:</strong> <a href="{{ contacto.instagram }}" target="_blank">{{ contacto.instagram }}</a></p>
+                <p><strong>Discord:</strong> {{ contacto.discord }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    <footer class="bg-dark text-white p-1 mt-auto">
+        <div class="container">
+            <p class="text-center">© 2025 Tienda de Vinilos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+{% endblock footer %}

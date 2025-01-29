@@ -1,20 +1,23 @@
 {% extends 'Main/base.html' %}
 
+{% block content_secondtitle %}
+    Vinilos Destacados
+    <a href="{% url 'mymusicstore:registrardiscodestacado' %}" class="btn btn-secondary">Agregar Disco Destacado</a>
+{% endblock content_secondtitle %}
+
 {% block main %}
     <section>
-        <div class="d-flex justify-content-between align-items-center">
-            <h2 class="display-6">Vinilos Destacados</h2>
-            <a href="{% url 'mymusicstore:registrardiscodestacado' %}" class="btn btn-success">Agregar Disco Destacado</a>
-        </div>
-        <div class="row mt-3">
+        <div class="row">
             {% for discodestacado in discosdestacados %}
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card h-100">
+                    <div class="card h-100" style="background-color: #f8f9fa;">
+                        {% if discodestacado.imagen %}
+                            <img src="{{ discodestacado.imagen.url }}" class="card-img-top" alt="{{ discodestacado.nombre }}">
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ discodestacado.nombre }}</h5>
                             <p class="card-text">S/{{ discodestacado.precio }}</p>
-                            <a href="#" class="btn btn-primary">Ver detalles</a>
-                            <button class="btn btn-outline-primary" type="button">Añadir a Deseados</button>
+                            <a href="{% url 'mymusicstore:detalle_disco_destacado' discodestacado.id %}" class="btn btn-primary">Ver detalles</a>
                         </div>
                     </div>        
                 </div>
@@ -27,22 +30,21 @@
 
 {% block content_title %}
     Vinilos más recientes
+    <a href="{% url 'mymusicstore:registrardisco' %}" class="btn btn-secondary">Agregar Disco</a>
 {% endblock content_title %}
-
-{% block content_title_actions %}
-    <a href="{% url 'mymusicstore:registrardisco' %}" class="btn btn-primary">Agregar Disco</a>
-{% endblock content_title_actions %}
 
 {% block content %}
     <div class="row">
         {% for disco in discos %}
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card h-100">
+                <div class="card h-100" style="background-color: #f8f9fa;">
+                    {% if disco.imagen %}
+                        <img src="{{ disco.imagen.url }}" class="card-img-top" alt="{{ disco.nombre }}">
+                    {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ disco.nombre }}</h5>
                         <p class="card-text">S/{{ disco.precio }}</p>
-                        <a href="#" class="btn btn-primary">Ver detalles</a>
-                        <button class="btn btn-outline-primary" type="button">Añadir a Deseados</button>
+                        <a href="{% url 'mymusicstore:detalle_disco' disco.id %}" class="btn btn-primary">Ver detalles</a>
                     </div>
                 </div>        
             </div>

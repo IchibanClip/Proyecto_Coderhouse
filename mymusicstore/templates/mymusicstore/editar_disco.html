@@ -1,0 +1,25 @@
+{% extends 'Main/base.html' %}
+
+{% block title %}
+    Editar Disco
+{% endblock title %}
+
+{% block content_title %}
+    Editar Disco
+{% endblock content_title %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+{% endblock content %}
+
+{% block footer %}
+    <footer class="bg-dark text-white p-1 mt-auto">
+        <div class="container">
+            <p class="text-center">© 2025 Tienda de Vinilos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+{% endblock footer %}
